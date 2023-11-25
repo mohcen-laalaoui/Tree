@@ -1,17 +1,21 @@
 #include <iostream>
 using namespace std;
 
+// Naming convention: Consider using camelCase or underscores for variable names to improve readability.
 struct simlyLinkedList
 {
     int data;
     simlyLinkedList *next;
 };
 
+// Using a typedef for simplifying the struct's name is a good practice.
 typedef simlyLinkedList list;
 
+// Global variables are generally avoided. Consider using a class or a namespace to encapsulate your code.
 list *head = nullptr;
 int value;
 
+// Function to insert a value at the beginning of the linked list.
 void insert_v(list *&head, int value)
 {
     list *p = new list();
@@ -20,6 +24,7 @@ void insert_v(list *&head, int value)
     head = p;
 }
 
+// Function to insert a value at the beginning of the linked list.
 void insert_d(list *&head, int value)
 {
     list *p = new list();
@@ -35,6 +40,7 @@ void insert_d(list *&head, int value)
     }
 }
 
+// Function to insert a value at a specified position in the linked list.
 void insert_m(list *&head, int value)
 {
     if (head == nullptr)
@@ -60,6 +66,7 @@ void insert_m(list *&head, int value)
     }
 }
 
+// Function to insert a value at the end of the linked list.
 void insert_f(list *&head, int value)
 {
     if (head == nullptr)
@@ -81,6 +88,7 @@ void insert_f(list *&head, int value)
     }
 }
 
+// Function to delete the first node in the linked list.
 void del_d(list *&head)
 {
     if (head == nullptr)
@@ -97,6 +105,7 @@ void del_d(list *&head)
     }
 }
 
+// Function to delete a node at a specified position in the linked list.
 void del_btw(list *&head)
 {
     if (head == nullptr)
@@ -122,6 +131,7 @@ void del_btw(list *&head)
     }
 }
 
+// Function to delete the last node in the linked list.
 void del_f(list *&head)
 {
     if (head == nullptr)
@@ -144,6 +154,7 @@ void del_f(list *&head)
     }
 }
 
+// Function to display the linked list.
 void disp(list *&head)
 {
     if (head == nullptr)
@@ -164,6 +175,7 @@ void disp(list *&head)
 
 int main()
 {
+    // Insert values using different functions.
     insert_v(head, 5);
     insert_d(head, 10);
     insert_d(head, 20);
@@ -178,10 +190,17 @@ int main()
     insert_f(head, 26);
     insert_f(head, 36);
     insert_f(head, 46);
+
+    // Display the linked list.
     disp(head);
+
+    // Delete nodes using different functions.
     del_d(head);
     del_btw(head);
     del_f(head);
+
+    // Display the modified linked list.
     disp(head);
+
     return 0;
 }
